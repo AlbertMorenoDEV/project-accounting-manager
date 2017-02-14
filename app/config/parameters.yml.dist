@@ -4,9 +4,9 @@
 parameters:
     database_host:     127.0.0.1
     database_port:     ~
-    database_name:     project-accounting-manager
-    database_user:     project-accounting-manager
-    database_password: project-accounting-manager
+    database_name:     project_accounting_manager
+    database_user:     project_accounting_manager
+    database_password: project_accounting_manager
     # You should uncomment this if you want use pdo_sqlite
     # database_path: "%kernel.root_dir%/data.db3"
 

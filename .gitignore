@@ -1,7 +1,17 @@
-composer.phar
 /vendor/
 /.idea/
+/docker/code.yml
 
 # Commit your application's lock file http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file
 # You may choose to ignore a library lock file http://getcomposer.org/doc/02-libraries.md#lock-file
-# composer.lock
+composer.lock
+
+# Cache, session files and logs (Symfony3)
+/var/SymfonyRequirements.php
+/var/cache/*
+/var/logs/*
+/var/sessions/*
+!/var/cache/.gitkeep
+!/var/logs/.gitkeep
+!/var/sessions/.gitkeep
+/app/config/parameters.yml

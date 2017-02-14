@@ -1,0 +1,42 @@
+version: '2'
+services:
+  db:
+    container_name: project_accounting_manager_db
+    image: mysql:5.7
+    environment:
+      MYSQL_DATABASE: project_accounting_manager
+      MYSQL_USER: project_accounting_manager
+      MYSQL_PASSWORD: project_accounting_manager
+      MYSQL_ROOT_PASSWORD:  project_accounting_manager
+    ports:
+      - 3306:3306
+    volumes:
+      - database:/var/lib/mysql
+  mailer:
+    image: schickling/mailcatcher
+    container_name: project_accounting_manager_mail
+    ports:
+      - 1080:1080
+  web:
+    build:
+      context: docker/web
+    container_name: project_accounting_manager_web
+    image: project_accounting_manager_web:v1
+    depends_on:
+      - db
+      - mailer
+    environment:
+      DATABASE_NAME: project_accounting_manager
+      DATABASE_USER: project_accounting_manager
+      DATABASE_PASSWORD: project_accounting_manager
+      XDEBUG_CONFIG: idekey=PHPSTORM
+      PHP_XDEBUG_ENABLED: 1
+    ports:
+      - "49100:22"
+      - "80:80"
+    extends:
+      file: docker/code.yml
+      service: web
+volumes:
+  database:
+    driver: "local"
