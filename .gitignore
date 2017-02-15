@@ -15,3 +15,7 @@ composer.lock
 !/var/logs/.gitkeep
 !/var/sessions/.gitkeep
 /app/config/parameters.yml
+
+# Bootstrap assets
+/web/js/bootstrap.js
+/web/css/bootstrap.css
